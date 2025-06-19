@@ -14,7 +14,8 @@ fun Application.module() {
 
     // Configure CORS to allow cross-origin requests from example localhost:8080 or any server url
     install(CORS) {
-        allowHost("localhost:8080", schemes = listOf("http"))
+        anyHost() // allow access from anywhere
+        // allowHost("localhost:8080", schemes = listOf("http"))
         allowMethod(HttpMethod.Get)
         allowMethod(HttpMethod.Post)
         allowMethod(HttpMethod.Put)

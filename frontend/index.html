@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Customer Service Topics Dashboard</title>
+  <link rel="stylesheet" href="src/css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎯 Customer Service Learning Dashboard</h1>
+      <p class="subtitle">Manipulate customer service topics with ease according to your understanding</p>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-card">
+        <span class="stat-number" id="total-topics">-</span>
+        <div class="stat-label">Total Topics</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="high-priority">-</span>
+        <div class="stat-label">High Priority</div>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" id="avg-length">-</span>
+        <div class="stat-label">Avg. Length</div>
+      </div>
+    </div>
+
+    <div class="controls-section">
+      <div class="search-section">
+        <input 
+          type="text" 
+          class="search-box" 
+          placeholder="🔍 Search topics..." 
+          id="search-input"
+        />
+      </div>
+      
+      <div class="action-buttons">
+        <button class="btn btn-primary" id="add-topic-btn">
+          ➕ Add New Topic
+        </button>
+        <button class="btn btn-secondary" id="refresh-btn">
+          🔄 Refresh
+        </button>
+      </div>
+    </div>
+
+    <div class="topics-grid" id="topics-container">
+      <div class="loading">Loading topics from API...</div>
+    </div>
+  </div>
+
+  <!-- Modal for Add/Edit Topic -->
+  <div class="modal" id="topic-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Add New Topic</h2>
+        <span class="close" id="modal-close">&times;</span>
+      </div>
+      <form id="topic-form">
+        <div class="form-group">
+          <label for="topic-title">Title *</label>
+          <input type="text" id="topic-title" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="topic-description">Description</label>
+          <textarea id="topic-description" name="description" rows="4"></textarea>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" id="cancel-btn">Cancel</button>
+          <button type="submit" class="btn btn-primary" id="submit-btn">Save Topic</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="modal" id="confirm-modal">
+    <div class="modal-content confirm-modal">
+      <div class="modal-header">
+        <h2>Confirm Action</h2>
+      </div>
+      <div class="modal-body">
+        <p id="confirm-message">Are you sure you want to proceed?</p>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" id="confirm-cancel">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirm-yes">Yes, Proceed</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <span id="toast-message"></span>
+  </div>
+
+  <script src="src/js/main.js"></script>
+</body>
+</html>

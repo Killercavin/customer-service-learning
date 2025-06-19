@@ -56,5 +56,11 @@ dependencies {
 
     // Exposed CORS
     implementation("io.ktor:ktor-server-cors:2.2.4")
+}
 
+// configuration for JDK version
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
 }
