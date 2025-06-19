@@ -2,17 +2,18 @@ package app
 
 import app.route.topicRoutes
 import io.ktor.server.application.*
-import io.ktor.server.response.*
+import io.ktor.server.http.content.*
 import io.ktor.server.routing.*
 
 fun Application.configureRouting() {
     routing {
-        get("/") {
-            call.respondText("Hello World!")
-        }
 
-        route("/api") {
-            topicRoutes()
+        routing {
+            staticResources("/", "static") // Serve static files (HTML, CSS, JS)
+
+            route("api") {
+                topicRoutes()
+            }
         }
     }
 }
