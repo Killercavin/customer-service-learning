@@ -10,6 +10,6 @@ class TopicEntity(id: EntityID<Int>) : IntEntity(id) {
 
     var title by TopicTable.title
     var description by TopicTable.description
-    val createdAt by TopicTable.createdAt
-    val updatedAt by TopicTable.updatedAt
+    var createdAt by TopicTable.createdAt
+    var updatedAt by TopicTable.updatedAt
 }

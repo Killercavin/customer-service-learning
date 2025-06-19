@@ -4,6 +4,7 @@ val logback_version: String by project
 plugins {
     kotlin("jvm") version "2.1.10"
     id("io.ktor.plugin") version "3.2.0"
+    kotlin("plugin.serialization") version "1.9.0"
 }
 
 group = "app"
@@ -52,5 +53,8 @@ dependencies {
 
     // Ktor plugin for Kotlinx Serialization
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm:2.3.9")
+
+    // Exposed CORS
+    implementation("io.ktor:ktor-server-cors:2.2.4")
 
 }

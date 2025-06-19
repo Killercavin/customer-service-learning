@@ -10,7 +10,17 @@ fun Route.topicRoutes() {
     route("/topics") {
         get { controller.getAll(call) }
         post { controller.create(call) }
-        get("/{id}") { controller.getById(call) }
-        delete("/{id}") { controller.delete(call) }
+
+        // New search endpoint
+        get("/search") { controller.search(call) }
+
+        route("/{id}") {
+            get { controller.getById(call) }
+            delete { controller.delete(call) }
+
+            // New update endpoint
+            put { controller.update(call) }
+            // patch {  controller.update(call) }
+        }
     }
 }
