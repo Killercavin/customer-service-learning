@@ -37,3 +37,4 @@ out/
 
 ### Environment files
 /.env
+/.kotlin/
